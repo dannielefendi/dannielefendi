@@ -2,8 +2,8 @@ name: Generate Pacman Contribution Graph
 
 on:
   schedule:
-    - cron: "0 */12 * * *"   # Runs every 12 hours
-  workflow_dispatch:          # Allow manual trigger
+    - cron: "0 */12 * * *"   # every 12 hours
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -11,15 +11,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write   # allow pushing back to repo
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Generate contribution graph
         uses: yoshi389111/github-profile-3d-contrib@0.7.1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          user_name: dannielefendi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push to output branch
         run: |
