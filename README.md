@@ -1,4 +1,7 @@
-# 👋 Hi, I'm Danniel Efendi  
+# 👋 Hello, I'm Danniel Efendi  
+
+![Danniel Efendi](img/github-header-banner.png)
+
 
 💻 Computer Science Student at Binus University  
 🚀 Passionate about Software Development, AI, and Open Source  
